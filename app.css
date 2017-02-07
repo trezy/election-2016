@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  align-content: stretch;
+  align-items: stretch;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+body > header {
+  background-color: #222;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 1);
+  display: flex;
+  flex-shrink: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+
+footer a {
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+section {
+  flex-grow: 1;
+  padding: 1rem;
+  width: 50%;
+}
+
+section h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+section .details {
+  font-size: 0.8em;
+  margin-top: 1rem;
+}
+
+section .details .electoral-count {
+  font-size: 2em;
+}
+
+section .details .popular-count,
+section .details .popular-label {
+  color: white;
+  font-size: 0.8em;
+}
+
+section li {
+  padding: 1rem;
+}
+
+section li:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+section li:after,
+section li:before {
+  color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  font-weight: normal !important;
+  width: 2rem;
+}
+
+
+
+
+
+.winning {
+  font-weight: bold;
+}
+
+
+
+
+
+ol {
+  flex-grow: 1;
+}
+
+ol:empty {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+ol:empty:after,
+ol:empty:before {
+  align-items: center;
+  border-radius: 100%;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  position: absolute;
+  width: 100px;
+}
+
+ol:empty:after {
+  background-color: white;
+  content: 'Loading';
+  font-size: 14px;
+  font-weight: 100;
+}
+
+ol:empty:before {
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: loading-spinner;
+  background-color: #1a1a1a;
+  content: '';
+}
+
+ol li {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.hillary-is-winning .state {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(10, 106, 166, 0.6),
+    rgba(10, 106, 166, 1)
+  );
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.hillary-is-winning .state:before {
+  background-image: linear-gradient(
+    to bottom left,
+    rgba(10, 106, 166, 0.6),
+    rgba(10, 106, 166, 1)
+  );
+  font-size: 0.8em;
+}
+
+section.hillary {
+  color: rgba(10, 106, 166, 1);
+  text-align: left;
+}
+
+section.hillary .details div {
+  float: left;
+}
+
+section.hillary .details .electoral-count {
+  font-size: 2em;
+  margin-right: 0.5rem;
+}
+
+section.hillary .details .popular-count {
+  margin-right: 0.2rem;
+}
+
+section.hillary .details .popular-count,
+section.hillary .details .popular-label {
+  color: white;
+  font-size: 0.8em;
+}
+
+
+
+
+
+.trump-is-winning .state {
+  background-image: linear-gradient(
+    to bottom left,
+    rgba(205, 23, 29, 0.6),
+    rgba(205, 23, 29, 1)
+  );
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.trump-is-winning .state:after {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(205, 23, 29, 0.6),
+    rgba(205, 23, 29, 1)
+  );
+  font-size: 0.8em;
+}
+
+section.trump {
+  color: rgba(205, 23, 29, 1);
+  text-align: right;
+}
+
+section.trump .details div {
+  float: right;
+}
+
+section.trump .details .electoral-count {
+  font-size: 2em;
+  margin-left: 0.5rem;
+}
+
+section.trump .details .popular-count {
+  margin-left: 0.2rem;
+}
+
+section.trump .details .popular-count,
+section.trump .details .popular-label {
+  color: white;
+  font-size: 0.8em;
+}
+
+
+
+
+
+.state {
+  align-items: center;
+  background-color: lightgrey;
+  background-image: linear-gradient(
+    to bottom right,
+    white,
+    lightgrey
+  );
+  border-color: lightgrey;
+  border-style: solid;
+  border-width: 0.1rem;
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.1);
+  color: white;
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  min-width: 25vw;
+  text-align: center;
+}
+
+.state:before,
+.state:after {
+  align-items: center;
+  background-color: lightgrey;
+  bottom: 20%;
+  display: flex;
+  font-size: 0.5em;
+  padding: 0.2rem 0.5rem;
+  position: absolute;
+  top: 20%;
+  z-index: -1;
+}
+
+.state:before {
+  content: attr(data-hillary);
+  right: 100%;
+}
+
+.state:after {
+  content: attr(data-trump);
+  left: 100%;
+}
+
+
+
+
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg) scale(1.01) translateX(-4px);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.01) translateX(-4px);
+  }
+}
